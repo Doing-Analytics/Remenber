@@ -6,4 +6,12 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resources :users, only: [:new, :create, :destroy]
+
+  resources :sessions , only: [:create] do
+    collection do 
+      get 'log_in', to: 'sessions#new', as: :new
+      delete 'log_out', to: 'sessions#delete', as: :delete
+    end
+  end
+
 end
