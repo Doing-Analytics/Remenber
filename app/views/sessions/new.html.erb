@@ -1,0 +1,14 @@
+<h1>登入</h1>
+
+<%= form_with(url: sessions_path, method: 'post') do |f| %>
+  <div>
+    <span>信箱：</span>
+    <%= f.email_field :email %>
+  </div>
+  <div>
+    <span>密碼：</span>
+    <%= f.password_field :crypted_password %>
+  </div>
+
+  <%= f.submit '送出' %>
+<% end %>
